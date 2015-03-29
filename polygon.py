@@ -21,3 +21,9 @@ def arc(t, r, angle):
     for i in range(n):
         fd(t,step_length)
         lt(t,step_angle)
+
+def circle(t, r):
+    circumference = 2 * math.pi * r
+    n = int(circumference / 3) + 1
+    length = circumference / n
+    polygon(t, n, length)
