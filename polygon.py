@@ -1,6 +1,5 @@
 from swampy.TurtleWorld import *
-world = TurtleWorld()
-bob = Turtle()
+import math
 
 def square(t, length):
     for i in range(4):
@@ -12,3 +11,13 @@ def polygon(t, n, length):
     for i in range(n):
         fd(t, length)
         lt(t, angle)
+
+def arc(t, r, angle):
+    arc_length = 2 * math.pi * r * angle / 360
+    n = int(arc_length / 3) + 2
+    step_length = arc_length / n
+    step_angle = float(angle) / n
+    
+    for i in range(n):
+        fd(t,step_length)
+        lt(t,step_angle)
