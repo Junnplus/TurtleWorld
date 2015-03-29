@@ -18,12 +18,12 @@ def arc(t, r, angle):
     step_length = arc_length / n
     step_angle = float(angle) / n
     
-    for i in range(n):
-        fd(t,step_length)
-        lt(t,step_angle)
+    polyline(t, n, step_length, step_angle)
 
 def circle(t, r):
-    circumference = 2 * math.pi * r
-    n = int(circumference / 3) + 1
-    length = circumference / n
-    polygon(t, n, length)
+    arc(t, r, 360)
+
+def polyline(t, n, length, angle):
+    for i in range(n):
+        fd(t, length)
+        lt(t, angle)
